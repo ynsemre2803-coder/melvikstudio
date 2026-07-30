@@ -74,6 +74,44 @@
       linear-gradient(180deg, #1B1B30 0%, #22223B 55%, #2A2A45 100%);
   }
 
+  .hero-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(70px);
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+  .hero-orb-1 {
+    width: 32rem; height: 32rem; top: -8rem; left: -6rem;
+    background: radial-gradient(circle, rgba(201,173,167,0.55) 0%, rgba(201,173,167,0) 70%);
+    animation: heroFloat1 22s ease-in-out infinite;
+  }
+  .hero-orb-2 {
+    width: 26rem; height: 26rem; top: 4rem; right: -8rem;
+    background: radial-gradient(circle, rgba(154,140,152,0.5) 0%, rgba(154,140,152,0) 70%);
+    animation: heroFloat2 26s ease-in-out infinite;
+  }
+  .hero-orb-3 {
+    width: 30rem; height: 30rem; bottom: -12rem; left: 30%;
+    background: radial-gradient(circle, rgba(74,78,105,0.6) 0%, rgba(74,78,105,0) 70%);
+    animation: heroFloat3 30s ease-in-out infinite;
+  }
+  @keyframes heroFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+    50% { transform: translate(3rem, 4rem) scale(1.15); opacity: 1; }
+  }
+  @keyframes heroFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    50% { transform: translate(-4rem, 3rem) scale(1.1); opacity: 0.9; }
+  }
+  @keyframes heroFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    50% { transform: translate(-2rem, -3rem) scale(1.2); opacity: 0.85; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-orb { animation: none; }
+  }
+
   .cta-primary {
     background: linear-gradient(180deg, #D4B8AF 0%, #C9ADA7 100%);
     color: #22223B;
@@ -147,9 +185,9 @@
 
 <!-- Header -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-navy/80 backdrop-blur-md border-b border-cream/10">
-  <nav class="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between" aria-label="Ana menü">
+  <nav class="max-w-6xl mx-auto px-6 md:px-10 h-24 flex items-center justify-between" aria-label="Ana menü">
     <a href="#hero" class="flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-rose focus-visible:outline-offset-4 rounded" aria-label="MelvikStudio anasayfa">
-      <img src="LogoImages/melvik-horizontal-white.svg" alt="MelvikStudio" class="h-8 w-auto">
+      <img src="LogoImages/melvik-horizontal-white.svg" alt="MelvikStudio" class="h-14 md:h-16 w-auto">
     </a>
     <ul class="hidden md:flex items-center gap-10 text-sm text-cream/80">
       <li><a href="#hizmetler" class="nav-link">Hizmetler</a></li>
@@ -179,6 +217,9 @@
 
   <!-- Hero -->
   <section id="hero" class="relative hero-gradient text-cream pt-40 pb-28 md:pt-48 md:pb-36 px-6 overflow-hidden">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
     <div class="noise"></div>
     <div class="max-w-4xl mx-auto text-center relative">
       <p class="uppercase tracking-[0.25em] text-xs text-rose/90 font-semibold mb-6">Web Sitesi Tasarımı</p>
@@ -245,8 +286,10 @@
     <div class="noise"></div>
     <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.2fr] gap-14 md:gap-20 items-center relative">
       <div class="relative">
-        <div class="aspect-[4/5] rounded-2xl bg-slate/40 border border-cream/10 overflow-hidden shadow-lift">
-          <img src="https://placehold.co/560x700/4A4E69/F2E9E4?text=MelvikStudio" alt="MelvikStudio kurucusu çalışma masasında" class="w-full h-full object-cover">
+        <div class="aspect-[4/5] rounded-2xl bg-slate/40 border border-cream/10 overflow-hidden shadow-lift relative">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop" alt="Web tasarım sürecinde dizüstü bilgisayar ekranında tasarım çalışması" class="w-full h-full object-cover" loading="lazy">
+          <div class="absolute inset-0 bg-navy/40" style="mix-blend-mode: multiply;"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent"></div>
         </div>
         <div class="absolute -bottom-6 -right-6 bg-rose text-navy rounded-2xl px-6 py-5 shadow-glow hidden sm:block">
           <p class="font-display text-2xl leading-none">%100</p>
