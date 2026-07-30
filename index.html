@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MelvikStudio — Web Sitesi Tasarımı</title>
+<meta name="description" content="Küçük ve orta ölçekli işletmeler için hızlı yüklenen, tek sayfalık ve sektöre özel çok sayfalı web siteleri tasarlıyorum. MelvikStudio ile markanız internette hak ettiği görünürlüğe kavuşur.">
+<meta name="keywords" content="web sitesi tasarımı, tek sayfa web sitesi, kurumsal web sitesi tasarımı, freelance web tasarımcı">
+<meta name="author" content="MelvikStudio">
+<link rel="canonical" href="https://melvikstudio.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="MelvikStudio — Web Sitesi Tasarımı">
+<meta property="og:description" content="İşletmeler için hızlı, sade ve etkileyici web siteleri tasarlıyorum. Tek sayfa tanıtım siteleri ve sektöre özel çok sayfalı projeler.">
+<meta property="og:image" content="https://melvikstudio.com/og-image.jpg">
+<meta property="og:url" content="https://melvikstudio.com/">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="MelvikStudio">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MelvikStudio — Web Sitesi Tasarımı">
+<meta name="twitter:description" content="İşletmeler için hızlı, sade ve etkileyici web siteleri tasarlıyorum.">
+<meta name="twitter:image" content="https://melvikstudio.com/og-image.jpg">
+
+<link rel="icon" type="image/svg+xml" href="LogoImages/melvik-icon-black.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:    '#1B1B30',
+          navy:   '#22223B',
+          slate:  '#4A4E69',
+          mauve:  '#9A8C98',
+          rose:   '#C9ADA7',
+          cream:  '#F2E9E4',
+        },
+        fontFamily: {
+          display: ['"Fraunces"', 'serif'],
+          sans: ['"Manrope"', 'sans-serif'],
+        },
+        boxShadow: {
+          'soft': '0 1px 2px rgba(34,34,59,0.06), 0 8px 24px -8px rgba(34,34,59,0.18)',
+          'lift': '0 2px 4px rgba(34,34,59,0.10), 0 20px 40px -12px rgba(34,34,59,0.35)',
+          'glow': '0 0 0 1px rgba(201,173,167,0.25), 0 12px 32px -8px rgba(201,173,167,0.35)',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #F2E9E4; }
+
+  .noise {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.05; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .hero-gradient {
+    background:
+      radial-gradient(60% 55% at 15% 10%, rgba(154,140,152,0.35) 0%, rgba(154,140,152,0) 60%),
+      radial-gradient(50% 60% at 90% 20%, rgba(201,173,167,0.25) 0%, rgba(201,173,167,0) 65%),
+      radial-gradient(80% 80% at 50% 100%, rgba(74,78,105,0.55) 0%, rgba(74,78,105,0) 70%),
+      linear-gradient(180deg, #1B1B30 0%, #22223B 55%, #2A2A45 100%);
+  }
+
+  .cta-primary {
+    background: linear-gradient(180deg, #D4B8AF 0%, #C9ADA7 100%);
+    color: #22223B;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 10px 24px -8px rgba(201,173,167,0.55);
+    transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 220ms ease;
+  }
+  .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 16px 32px -8px rgba(201,173,167,0.65); }
+  .cta-primary:active { transform: translateY(0); }
+  .cta-primary:focus-visible { outline: 2px solid #F2E9E4; outline-offset: 3px; }
+
+  .cta-ghost {
+    border: 1px solid rgba(242,233,228,0.25);
+    color: #F2E9E4;
+    transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), background-color 220ms ease, border-color 220ms ease;
+  }
+  .cta-ghost:hover { background-color: rgba(242,233,228,0.08); border-color: rgba(242,233,228,0.5); transform: translateY(-2px); }
+  .cta-ghost:focus-visible { outline: 2px solid #F2E9E4; outline-offset: 3px; }
+
+  .card-elevated {
+    background: linear-gradient(180deg, #ffffff 0%, #FBF7F4 100%);
+    box-shadow: 0 1px 2px rgba(34,34,59,0.05), 0 12px 28px -14px rgba(74,78,105,0.35);
+    transition: transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 260ms ease, border-color 260ms ease;
+  }
+  .card-elevated:hover { transform: translateY(-4px); box-shadow: 0 4px 8px rgba(34,34,59,0.06), 0 24px 48px -16px rgba(74,78,105,0.45); }
+
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ''; position: absolute; left: 0; right: 100%; bottom: -4px; height: 1px; background: #C9ADA7;
+    transition: right 240ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .nav-link:hover::after, .nav-link:focus-visible::after { right: 0; }
+  .nav-link:focus-visible { outline: 2px solid #C9ADA7; outline-offset: 4px; border-radius: 2px; }
+
+  .portfolio-card { position: relative; overflow: hidden; }
+  .portfolio-card img { transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1); }
+  .portfolio-card:hover img { transform: scale(1.06); }
+
+  .contact-link {
+    transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1), border-color 220ms ease, background-color 220ms ease;
+  }
+  .contact-link:hover { transform: translateY(-3px); }
+  .contact-link:focus-visible { outline: 2px solid #C9ADA7; outline-offset: 3px; }
+
+  .mobile-menu { transition: opacity 220ms ease, transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+  ::selection { background: #C9ADA7; color: #22223B; }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "MelvikStudio",
+  "image": "https://melvikstudio.com/og-image.jpg",
+  "description": "Küçük ve orta ölçekli işletmeler için tek sayfalık ve sektöre özel çok sayfalı web siteleri tasarlayan web tasarım stüdyosu.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "TR"
+  },
+  "url": "https://melvikstudio.com/",
+  "email": "info@melvikstudio.com",
+  "telephone": "+905453175803",
+  "priceRange": "$$",
+  "serviceType": ["Web Sitesi Tasarımı", "Tek Sayfa Web Sitesi", "Kurumsal Web Sitesi", "SEO"],
+  "sameAs": []
+}
+</script>
+</head>
+
+<body class="font-sans text-navy antialiased">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-navy/80 backdrop-blur-md border-b border-cream/10">
+  <nav class="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between" aria-label="Ana menü">
+    <a href="#hero" class="flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-rose focus-visible:outline-offset-4 rounded" aria-label="MelvikStudio anasayfa">
+      <img src="LogoImages/melvik-horizontal-white.svg" alt="MelvikStudio" class="h-8 w-auto">
+    </a>
+    <ul class="hidden md:flex items-center gap-10 text-sm text-cream/80">
+      <li><a href="#hizmetler" class="nav-link">Hizmetler</a></li>
+      <li><a href="#hakkimda" class="nav-link">Hakkımda</a></li>
+      <li><a href="#portfolyo" class="nav-link">Portfolyo</a></li>
+      <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+    </ul>
+    <a href="https://wa.me/905453175803" target="_blank" rel="noopener" class="hidden md:inline-flex items-center gap-2 cta-primary px-5 py-2.5 rounded-full text-sm font-semibold">
+      Teklif Al
+    </a>
+    <button id="menuBtn" class="md:hidden text-cream p-2 -mr-2" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </nav>
+  <div id="mobileMenu" class="mobile-menu md:hidden max-h-0 overflow-hidden opacity-0 bg-navy border-b border-cream/10">
+    <ul class="flex flex-col px-6 py-4 gap-4 text-cream/90 text-sm">
+      <li><a href="#hizmetler" class="block py-1">Hizmetler</a></li>
+      <li><a href="#hakkimda" class="block py-1">Hakkımda</a></li>
+      <li><a href="#portfolyo" class="block py-1">Portfolyo</a></li>
+      <li><a href="#iletisim" class="block py-1">İletişim</a></li>
+      <li><a href="https://wa.me/905453175803" target="_blank" rel="noopener" class="inline-flex items-center gap-2 cta-primary px-5 py-2.5 rounded-full font-semibold w-fit mt-1">Teklif Al</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section id="hero" class="relative hero-gradient text-cream pt-40 pb-28 md:pt-48 md:pb-36 px-6 overflow-hidden">
+    <div class="noise"></div>
+    <div class="max-w-4xl mx-auto text-center relative">
+      <p class="uppercase tracking-[0.25em] text-xs text-rose/90 font-semibold mb-6">Web Sitesi Tasarımı</p>
+      <h1 class="font-display text-[2.5rem] leading-[1.1] md:text-6xl md:leading-[1.08] tracking-[-0.02em] mb-6">
+        Markanızı internette<br class="hidden md:block"> haketiği yere taşıyoruz
+      </h1>
+      <p class="text-cream/70 text-base md:text-lg leading-[1.7] max-w-2xl mx-auto mb-10">
+        İşletmeler için hızlı yüklenen, arama motorlarında öne çıkan ve ilk bakışta güven veren web siteleri tasarlıyorum. Sade bir süreç, net bir sonuç.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#iletisim" class="cta-primary px-8 py-3.5 rounded-full font-semibold text-sm">Ücretsiz Ön Görüşme</a>
+        <a href="#portfolyo" class="cta-ghost px-8 py-3.5 rounded-full font-semibold text-sm">Portfolyoyu Gör</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hizmetler -->
+  <section id="hizmetler" class="bg-cream px-6 py-24 md:py-32">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-xl mb-16">
+        <p class="uppercase tracking-[0.2em] text-xs text-slate font-semibold mb-3">Hizmetler</p>
+        <h2 class="font-display text-3xl md:text-[2.75rem] leading-[1.15] tracking-[-0.02em] text-navy">İhtiyacınıza göre şekillenen web çözümleri</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <article class="card-elevated rounded-2xl p-7 border border-navy/5">
+          <div class="w-11 h-11 rounded-xl bg-navy/5 flex items-center justify-center mb-6">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A4E69" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+          </div>
+          <h3 class="font-display text-lg mb-2 text-navy">Tek Sayfa Siteler</h3>
+          <p class="text-sm text-slate leading-[1.7]">Hızlı yüklenen, ziyaretçiyi doğrudan harekete geçiren tanıtım siteleri.</p>
+        </article>
+
+        <article class="card-elevated rounded-2xl p-7 border border-navy/5">
+          <div class="w-11 h-11 rounded-xl bg-navy/5 flex items-center justify-center mb-6">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A4E69" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+          </div>
+          <h3 class="font-display text-lg mb-2 text-navy">Çok Sayfa Kurumsal Siteler</h3>
+          <p class="text-sm text-slate leading-[1.7]">Sektörünüze özel, kapsamlı içerik ve sayfa yapısına sahip kurumsal siteler.</p>
+        </article>
+
+        <article class="card-elevated rounded-2xl p-7 border border-navy/5">
+          <div class="w-11 h-11 rounded-xl bg-navy/5 flex items-center justify-center mb-6">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A4E69" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </div>
+          <h3 class="font-display text-lg mb-2 text-navy">SEO</h3>
+          <p class="text-sm text-slate leading-[1.7]">Bölgenizde ve sektörünüzde aranan hizmetlerde öne çıkmanız için arama motoru optimizasyonu.</p>
+        </article>
+
+        <article class="card-elevated rounded-2xl p-7 border border-navy/5">
+          <div class="w-11 h-11 rounded-xl bg-navy/5 flex items-center justify-center mb-6">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A4E69" stroke-width="1.6"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg>
+          </div>
+          <h3 class="font-display text-lg mb-2 text-navy">Bakım & Güncelleme</h3>
+          <p class="text-sm text-slate leading-[1.7]">Yayındaki sitenizde içerik ve tasarım güncellemeleri için düzenli destek.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Hakkimda -->
+  <section id="hakkimda" class="bg-navy text-cream px-6 py-24 md:py-32 relative overflow-hidden">
+    <div class="noise"></div>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-[1fr_1.2fr] gap-14 md:gap-20 items-center relative">
+      <div class="relative">
+        <div class="aspect-[4/5] rounded-2xl bg-slate/40 border border-cream/10 overflow-hidden shadow-lift">
+          <img src="https://placehold.co/560x700/4A4E69/F2E9E4?text=MelvikStudio" alt="MelvikStudio kurucusu çalışma masasında" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-rose text-navy rounded-2xl px-6 py-5 shadow-glow hidden sm:block">
+          <p class="font-display text-2xl leading-none">%100</p>
+          <p class="text-xs tracking-wide mt-1 text-navy/70">Şeffaf Süreç</p>
+        </div>
+      </div>
+      <div>
+        <p class="uppercase tracking-[0.2em] text-xs text-rose font-semibold mb-3">Hakkımda</p>
+        <h2 class="font-display text-3xl md:text-[2.5rem] leading-[1.15] tracking-[-0.02em] mb-6">Web sitenizi bir vitrin değil, bir araç olarak tasarlıyorum</h2>
+        <p class="text-cream/70 leading-[1.7] mb-5">
+          MelvikStudio, küçük ve orta ölçekli işletmelere odaklanan bir web tasarım stüdyosudur. Amacım karmaşık paneller ya da gereksiz özellikler değil; ziyaretçinin güvendiği, arama motorlarının bulduğu ve hızlı açılan siteler üretmek.
+        </p>
+        <p class="text-cream/70 leading-[1.7] mb-8">
+          Her proje; ihtiyaç analizi, sade bir tasarım süreci ve net teslim tarihleriyle ilerler. Sürecin her adımında doğrudan benimle iletişim halinde olursunuz.
+        </p>
+        <ul class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm text-cream/80">
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rose"></span>Hızlı teslim süreçleri</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rose"></span>Mobil öncelikli tasarım</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rose"></span>SEO odaklı yapı</li>
+          <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-rose"></span>Şeffaf fiyatlandırma</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolyo -->
+  <section id="portfolyo" class="bg-cream px-6 py-24 md:py-32">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-xl mb-16">
+        <p class="uppercase tracking-[0.2em] text-xs text-slate font-semibold mb-3">Portfolyo</p>
+        <h2 class="font-display text-3xl md:text-[2.75rem] leading-[1.15] tracking-[-0.02em] text-navy">Yakında canlıya alınacak projeler</h2>
+        <p class="text-slate leading-[1.7] mt-4">Şu anda ilk projelerim üzerinde çalışıyorum. Aşağıdaki taslaklar, MelvikStudio'nun tasarım yaklaşımına örnek teşkil ediyor.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
+        <!-- Reusable portfolio card x3, swap image + title when real projects are ready -->
+        <article class="portfolio-card rounded-2xl overflow-hidden border border-navy/5 bg-white shadow-soft">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://placehold.co/640x480/22223B/F2E9E4?text=Proje+Taslağı" alt="Restoran tanıtım sitesi taslağı" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent"></div>
+            <span class="absolute top-4 right-4 bg-rose text-navy text-xs font-semibold px-3 py-1.5 rounded-full tracking-wide">Yakında</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-lg text-navy mb-1">Restoran Tanıtım Sitesi</h3>
+            <p class="text-sm text-slate">Tek sayfa · Yerel işletme</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card rounded-2xl overflow-hidden border border-navy/5 bg-white shadow-soft">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://placehold.co/640x480/4A4E69/F2E9E4?text=Proje+Taslağı" alt="Hukuk bürosu kurumsal sitesi taslağı" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent"></div>
+            <span class="absolute top-4 right-4 bg-rose text-navy text-xs font-semibold px-3 py-1.5 rounded-full tracking-wide">Yakında</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-lg text-navy mb-1">Hukuk Bürosu Sitesi</h3>
+            <p class="text-sm text-slate">Çok sayfa · Kurumsal</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card rounded-2xl overflow-hidden border border-navy/5 bg-white shadow-soft">
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <img src="https://placehold.co/640x480/9A8C98/22223B?text=Proje+Taslağı" alt="Kişisel danışmanlık sitesi taslağı" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent"></div>
+            <span class="absolute top-4 right-4 bg-rose text-navy text-xs font-semibold px-3 py-1.5 rounded-full tracking-wide">Yakında</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-lg text-navy mb-1">Danışmanlık Sitesi</h3>
+            <p class="text-sm text-slate">Tek sayfa · Kişisel marka</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iletisim -->
+  <section id="iletisim" class="hero-gradient text-cream px-6 py-24 md:py-32 relative overflow-hidden">
+    <div class="noise"></div>
+    <div class="max-w-3xl mx-auto text-center relative">
+      <p class="uppercase tracking-[0.25em] text-xs text-rose/90 font-semibold mb-6">İletişim</p>
+      <h2 class="font-display text-3xl md:text-[2.75rem] leading-[1.15] tracking-[-0.02em] mb-6">Projenizi konuşalım</h2>
+      <p class="text-cream/70 leading-[1.7] mb-12 max-w-xl mx-auto">
+        WhatsApp üzerinden birkaç dakika içinde ön görüşme yapabilir ya da mail ile projenizin detaylarını iletebilirsiniz.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+        <a href="https://wa.me/905453175803" target="_blank" rel="noopener"
+           class="contact-link flex items-center gap-3 bg-cream/5 border border-cream/15 rounded-2xl px-7 py-5 w-full sm:w-auto justify-center hover:bg-cream/10">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#C9ADA7"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.48 1.32 4.99L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.13-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.79 14.13c-.24.68-1.4 1.33-1.93 1.4-.5.07-1.11.1-1.79-.11-.41-.13-.94-.3-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.93s.72-2.08.98-2.36c.24-.27.53-.34.7-.34.18 0 .35 0 .5.01.16.01.38-.06.6.45.24.55.8 1.94.87 2.08.07.14.11.3.02.49-.09.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.29-.12.56.16.28.72 1.19 1.56 1.93 1.07.95 1.97 1.25 2.24 1.39.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.37-.22.61-.13.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.66-.17 1.33z"/></svg>
+          <span class="text-left">
+            <span class="block text-sm text-cream/60">WhatsApp</span>
+            <span class="block font-semibold">Hemen Yazın</span>
+          </span>
+        </a>
+        <a href="mailto:info@melvikstudio.com"
+           class="contact-link flex items-center gap-3 bg-cream/5 border border-cream/15 rounded-2xl px-7 py-5 w-full sm:w-auto justify-center hover:bg-cream/10">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9ADA7" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <span class="text-left">
+            <span class="block text-sm text-cream/60">E-posta</span>
+            <span class="block font-semibold">info@melvikstudio.com</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-ink text-cream/60 px-6 py-14 border-t border-cream/10">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+    <img src="LogoImages/melvik-stacked-white.svg" alt="MelvikStudio" class="h-16 w-auto opacity-90">
+    <nav aria-label="Alt menü" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm">
+      <a href="#hizmetler" class="hover:text-cream transition-colors">Hizmetler</a>
+      <a href="#hakkimda" class="hover:text-cream transition-colors">Hakkımda</a>
+      <a href="#portfolyo" class="hover:text-cream transition-colors">Portfolyo</a>
+      <a href="#iletisim" class="hover:text-cream transition-colors">İletişim</a>
+    </nav>
+    <p class="text-xs text-cream/40 text-center md:text-right">© 2026 MelvikStudio.<br class="md:hidden"> Tüm hakları saklıdır.</p>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  let open = false;
+  menuBtn.addEventListener('click', () => {
+    open = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    if (open) {
+      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      mobileMenu.style.opacity = '1';
+    } else {
+      mobileMenu.style.maxHeight = '0px';
+      mobileMenu.style.opacity = '0';
+    }
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    open = false;
+    menuBtn.setAttribute('aria-expanded', 'false');
+    mobileMenu.style.maxHeight = '0px';
+    mobileMenu.style.opacity = '0';
+  }));
+</script>
+
+</body>
+</html>
